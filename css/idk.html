@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Access Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🔐 Enter Password</h2>
+  <input type="password" id="passwordInput" placeholder="Enter password">
+  <button onclick="checkPassword()">Unlock</button>
+
+  <!-- Hidden audio element -->
+  <audio id="failSound" src="fail.mp3" preload="auto"></audio>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("passwordInput").value;
+      const correctPassword = "AdminKey1234";
+
+      if (password === correctPassword) {
+        window.location.href = "secret.html";
+      } else {
+        document.getElementById("failSound").play();
+        alert("🖕");
+      }
+    }
+  </script>
+</body>
+</html>
